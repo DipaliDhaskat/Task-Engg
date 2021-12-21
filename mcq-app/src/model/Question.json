@@ -1,0 +1,147 @@
+{
+  "Qus": [{
+      "id": 1,
+      "name": "What of the following is used in React.js to increase performance?",
+      "displayName": {
+        "en": "What of the following is used in React.js to increase performance?",
+        "fr": "Quels éléments suivants sont utilisés dans React.js pour augmenter les performances?"
+      },
+      "option": [{
+          "id": "a",
+          "en": "Original DOM",
+          "fr": "originale DOM"
+        },
+        {
+          "id": "b",
+          "en": "Virtual DOM",
+          "fr": "virtuelle DOM"
+        },
+        {
+          "id": "c",
+          "en": "None of the above",
+          "fr": "Aucune de ces réponses"
+        },
+        {
+          "id": "d",
+          "en": "Both a and b",
+          "fr": "Les deux, a et b"
+        }
+      ],
+      "correct": ["b"]
+    },
+    {
+      "id": 2,
+      "name": "Does React.js create a VIRTUAL DOM in the memory?",
+      "displayName": {
+        "en": "Does React.js create a VIRTUAL DOM in the memory?",
+        "fr": "React.js crée-t-il un DOM VIRTUEL dans la mémoire?"
+      },
+      "option": [{
+          "id": "a",
+          "en": "True",
+          "fr": "vraie"
+        },
+        {
+          "id": "b",
+          "en": "False",
+          "fr": "faux"
+        }
+      ],
+      "correct": ["a"]
+
+    },
+    {
+      "id": 3,
+      "name": "React.Js is a free and open-source front-end.......(Fill Black) ",
+      "displayName": {
+        "en": "React.Js is a free and open-source front-end.......(Fill Black)",
+        "fr": "React.Js est un front-end gratuit et open-source....(Remplir noir)"
+      },
+      "option": [{
+          "id": "a",
+          "en": "JavaScript library",
+          "fr": "bibliothèque JavaScript"
+        },
+        {
+          "id": "b",
+          "en": "Bootstrap library",
+          "fr": "Bibliothèque d'amorçage"
+        },
+        {
+          "id": "c",
+          "en": "CSS library",
+          "fr": "bibliothèque CSS"
+        },
+        {
+          "id": "d",
+          "en": "None of the above",
+          "fr": "Aucune de ces réponses"
+        }
+      ],
+      "correct": ["a"]
+
+    },
+
+    {
+      "id": 4,
+      "name": "Does React.js create a VIRTUAL DOM in the memory?",
+      "displayName": {
+        "en": "Match pair of redux flow a)action b)store c)reducer",
+        "fr": "Matchie pairia of redux flow a)action b)store c)reducer"
+      },
+      "option": [{
+          "id": "a",
+          "en": "a-b-c",
+          "fr": "a-b-c"
+        },
+        {
+          "id": "b",
+          "en": "b-a-c",
+          "fr": "b-a-c"
+        },
+        {
+          "id": "c",
+          "en": "a-c-b",
+          "fr": "a-c-b"
+        },
+        {
+          "id": "d",
+          "en": "c-a-b",
+          "fr": "c-a-b"
+        }
+      ],
+      "correct": ["c"]
+    },
+
+    {
+      "id": 5,
+      "name": "Which of the following is the correct name of React.js?",
+      "displayName": {
+        "en": "Which of the following is the correct name of React.js?",
+        "fr": "Lequel des noms suivants est le nom correct de React.js"
+      },
+      "option": [{
+          "id": "a",
+          "en": "React",
+          "fr": "React"
+        },
+        {
+          "id": "b",
+          "en": "Bootstrap",
+          "fr": "Bootstrap"
+        },
+        {
+          "id": "c",
+          "en": "React.js",
+          "fr": "React.js"
+        },
+        {
+          "id": "d",
+          "en": "CSS",
+          "fr": "CSS"
+        }
+      ],
+      "correct": ["a", "c"]
+    }
+  ]
+}
