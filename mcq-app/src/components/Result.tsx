@@ -36,18 +36,20 @@ export const Result = () => {
         {
             info?.data.map((queInfo: any, value: number) => {
                 let re = "";
+                   const checkArray: Array<any> = [];
+
                 Object.keys(info?.answer).includes(`${value + 1}`) ? ((value === 4) ? (info?.answer[value + 1].map((element: any, index: any) => {
-                    let checkVal;
-                    const checkArray: Array<any> = [];
+
                     element.split("|").map((ops: any, num: number) => {
-                        console.log(num + "....." + ops + ".." + queInfo.correct.includes(`${ops}`))
-                        checkVal = (num === 1 && (queInfo.correct.includes(`${ops}`) ? "true" : "false"))
-                        checkArray.push(checkVal);
+                        num === 1 && checkArray.push(ops);
+
                     })
-
-                    re = checkArray.includes("false") ? "false" : "true";
-
+                    re = (checkArray.length === queInfo.correct.length &&
+                        checkArray.every((val: any, index: number) => val === queInfo.correct[index])) 
+                    ? "true" :(checkArray.reverse(), checkArray.every((val: any, index: number) => val === queInfo.correct[index])) ?"true" : "false";
+                 
                     return re;
+
                 })) : (info?.answer[value + 1]?.every((element: any, index: any) => {
 
                     const result = (element.split("|", 2).map((option: any, val: number) => {

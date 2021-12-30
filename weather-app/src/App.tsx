@@ -8,10 +8,12 @@ import {
 } from "react-router-dom";
 
 import { Provider } from 'react-redux'
-import {Home} from './components/Home'
 import {Store} from './Store/Store'
+
+import {Home} from './components/Home'
 import {CountryInfo} from './components/CountryInfo';
 import {WeatherDetails} from './components/WeatherDetails';
+
 function App() {
   return (
     <div className="App">

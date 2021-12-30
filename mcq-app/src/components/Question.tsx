@@ -67,14 +67,15 @@ export const Question = () => {
           >
             {data && data[currentPage - 1]?.option?.map((ele: any, index: number) => {
               return <>
-                {currentPage === totalPage
-                  ? (<FormControlLabel value={ele[`${lang}`] + "|" + ele.id} control={<Checkbox />} label={ele[`${lang}`]} onChange={(e) => handleOption(e, currentPage)} aria-required />)
-                  : <FormControlLabel value={ele[`${lang}`] + "|" + ele.id}
-                    control={<Radio checked={
-                      answer[currentPage]?.includes(`${ele[`${lang}`] + "|" + ele.id}`)
-                        ? true
-                        : false
-                    } required={true} />} label={ele[`${lang}`]} onChange={(e) => handleOption(e, currentPage)} aria-required />}
+                 {
+                  currentPage === totalPage
+                    ? <FormControlLabel value={ele[`${lang}`] + "|" + ele.id} key={index + 1}
+                      control={<Checkbox checked={answer[currentPage]?.includes(`${ele[`${lang}`] + "|" + ele.id}`)} />}
+                      label={ele[`${lang}`]} onChange={(e) => handleOption(e, currentPage)} aria-required />
+                    : <FormControlLabel value={ele[`${lang}`] + "|" + ele.id} key={index + 1}
+                      control={<Radio checked={answer[currentPage]?.includes(`${ele[`${lang}`] + "|" + ele.id}`)} required={true} />}
+                      label={ele[`${lang}`]} onChange={(e) => handleOption(e, currentPage)} aria-required />
+                }
               </>
             })}
           </RadioGroup>

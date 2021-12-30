@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import userEvent from '@testing-library/user-event'
-import { act } from 'react-dom/test-utils';
-import App from '../App'
-import { screen, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import { render, unmountComponentAtNode } from "react-dom";
-import { Provider } from 'react-redux';
-import { Home } from '../components/Home';
+import { act } from 'react-dom/test-utils';
+
+import userEvent from '@testing-library/user-event'
+
+import { screen, cleanup, fireEvent, waitFor } from '@testing-library/react';
+
+import App from '../App'
 import TextField from '@mui/material/TextField';
 
 let container: HTMLDivElement;
