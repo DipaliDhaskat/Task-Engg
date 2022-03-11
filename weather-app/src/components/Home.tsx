@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
-
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-
 import { getData } from '../Store/Action';
 
+interface RootState {
+	info: []
+}
 export const Home = () => {
 	const [name, setName] = useState<string>("")
 	const [flag, setFlag] = useState<number>(0);
-
-	const information = useSelector<any>(state => state.info)
+	const information = useSelector((state: RootState) => state?.info)
 	const dispatch = useDispatch();
-
 	const history = useHistory();
-
-	useEffect(() => {
-		dispatch(getData(`${name}`));
-	}, [name])
 
 	const handleChange = (e: any) => {
 		setName(e.target.value);
@@ -27,9 +21,10 @@ export const Home = () => {
 	}
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
+		dispatch(getData(`${name}`));
 		history.push({
-			pathname: './CountryInfo/${name}',
-			state: { information }
+			pathname: `./CountryInfo/${name}`,
+			state: information
 		})
 	}
 	return <>

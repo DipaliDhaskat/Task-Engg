@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render, unmountComponentAtNode } from "react-dom";
+import { render } from "react-dom";
 import { act } from 'react-dom/test-utils';
-
 import userEvent from '@testing-library/user-event'
-
-import { screen, cleanup, fireEvent, waitFor } from '@testing-library/react';
-
+import { screen, fireEvent } from '@testing-library/react';
 import App from '../App'
 import TextField from '@mui/material/TextField';
 
@@ -32,7 +29,6 @@ it('submit button test', () => {
   });
   fireEvent.click(screen.getByTestId('submit-button'));
   expect(screen.getByTestId("submit-button")).toHaveAttribute("type", "submit");
-
 });
 
 it('input with placeholder test', () => {
@@ -46,7 +42,6 @@ it('input with placeholder test', () => {
   fireEvent.change(screen.getByPlaceholderText("Enter country"), {
     target: { value: "new value" }
   });
-  // console.log(screen.getByPlaceholderText("Enter country"))
 });
 
 it('heading with input field', () => {
@@ -59,7 +54,6 @@ it('heading with input field', () => {
   const HomeElement = screen.getByTestId('home-heading')
   expect(HomeElement).toBeInTheDocument();
   expect(HomeElement).toHaveTextContent("FORM");
-
   const inputs = container.querySelectorAll("TextField");
   expect(inputs).toHaveLength(0);
 

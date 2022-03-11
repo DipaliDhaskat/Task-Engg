@@ -6,7 +6,10 @@ import thunk from 'redux-thunk';
 import {createStore,applyMiddleware} from 'redux'
 
 
-const initialState={
+const initialState:{
+info:Array<any>;
+loading:boolean;
+}={
 	info:[],
 	loading:true
 }

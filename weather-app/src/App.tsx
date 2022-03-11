@@ -26,7 +26,7 @@ function App() {
            <Route exact path='/WeatherDetails/:capital' component={WeatherDetails} />
         </Switch>
     </Router>
-  </Provider>,
+  </Provider>
      
     </div>
   );

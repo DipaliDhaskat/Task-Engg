@@ -14,7 +14,6 @@ export const Question = () => {
 
   const history = useHistory();
   const location = useLocation<any>();
-
   const [data, setData] = useState<any>([]);
   const [answer, setAnswer] = useState<any>({});
   const [option, setOption] = useState<Array<string>>([]);
@@ -67,7 +66,7 @@ export const Question = () => {
           >
             {data && data[currentPage - 1]?.option?.map((ele: any, index: number) => {
               return <>
-                 {
+                {
                   currentPage === totalPage
                     ? <FormControlLabel value={ele[`${lang}`] + "|" + ele.id} key={index + 1}
                       control={<Checkbox checked={answer[currentPage]?.includes(`${ele[`${lang}`] + "|" + ele.id}`)} />}

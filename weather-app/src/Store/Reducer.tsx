@@ -1,21 +1,24 @@
 
-import {COUNTRY_DATA} from './Action'
+import { COUNTRY_DATA } from './Action'
 
-const initialState={
-	info:[],
-	loading:true,
+const initialState: {
+  info: Array<object>;
+  loading: boolean;
+} = {
+  info: [],
+  loading: true
 }
 
-export const Reducer=(state=initialState,action:{type:string,payload:any})=>{
+export const Reducer = (state = initialState, action: { type: string, payload: any }) => {
 
-switch(action.type){
+  switch (action.type) {
 
-  case COUNTRY_DATA: return {
-  	...state,
-  	info : action.payload,
-  	loading:false
+    case COUNTRY_DATA: return {
+      ...state,
+      info: action.payload,
+      loading: false
+    }
+    default: return state
+
   }
-  default : return state
-
-}
 } 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -10,20 +10,20 @@ export const Home = () => {
     const randomId = useSelector<any>(state => state.id);
     const dispatch = useDispatch();
 
-
     const [id, setId] = useState<string>("");
-    const [data, setData] = useState<any>();
     const [flag, setFlag] = useState<number>(0);
     const history = useHistory();
 
     const url: string = `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=c7AFIeccy1roQgoqGW3KyV0tRHkuQKGKOYf32L1j`;
 
+    useEffect(() => {
+        dispatch(getData());
+    }, [dispatch])
+
     const getSubmitIdData = async (url: string) => {
         await axios.get(url)
             .then((res: any) => {
                 const { id, name, nasa_jpl_url, is_potentially_hazardous_asteroid } = res.data;
-
-
 
                 history?.push({
                     pathname: `./AsteroidInfo/${id}`,
@@ -42,14 +42,12 @@ export const Home = () => {
     }
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        setTimeout(() => {
-            getSubmitIdData(url);
-        }, 100)
+        getSubmitIdData(url);
     }
     const handleRandomId = () => {
         dispatch(getData());
-        setData(randomId);
-        const getId = data ? data[Math.floor(Math.random() * data.length)].id : "2001863";
+        const info: Array<any> = [randomId]
+        const getId = randomId && info[0][Math.floor(Math.random() * info[0].length)]?.id
         setId(getId);
         setFlag(1);
     }
