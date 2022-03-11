@@ -67,15 +67,16 @@ export const Home = () => {
                 <TableBody>
                     {console.log(data[currentPage]?.hits)}
                     {data.length > 0 &&
-                        data[currentPage]?.hits.filter((elem: any) => elem.title.includes(searchValue) || elem.created_at.includes(searchValue)).map((ele: any) => {
-                            return <TableRow key={ele.objectID} hover={true} onClick={() => handleClick(ele)}>
+                        data[currentPage]?.hits.filter((info: any) => info.title.toUpperCase().includes(searchValue.toUpperCase()) ||
+                            info.created_at.toUpperCase().includes(searchValue.toUpperCase())).map((ele: any) => {
+                                return <TableRow key={ele.objectID} hover={true} onClick={() => handleClick(ele)}>
 
-                                <TableCell >{ele.created_at}</TableCell>
-                                <TableCell >{ele.title}</TableCell>
-                                <TableCell >{ele.author}</TableCell>
-                                <TableCell>{ele.url}</TableCell>
-                            </TableRow>
-                        })
+                                    <TableCell >{ele.created_at}</TableCell>
+                                    <TableCell >{ele.title}</TableCell>
+                                    <TableCell >{ele.author}</TableCell>
+                                    <TableCell>{ele.url}</TableCell>
+                                </TableRow>
+                            })
                     }
                 </TableBody>
             </Table>
