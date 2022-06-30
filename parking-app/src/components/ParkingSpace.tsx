@@ -51,13 +51,20 @@ const ParkingSpace = () => {
 
     //Registration of car for Parking (Parking allocation)
     const handleRegistration = () => {
+        setCarNo("");
         setOpen(true);
-        const today = new Date(),
-            curTime = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+        // const today = new Date();
+        let today = new Date();
+        let hours = (today.getHours() < 10 ? '0' : '') + today.getHours();
+        let minutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
+        let seconds = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
+        let curTime = hours + ':' + minutes + ':' + seconds;
+
         setParkTime(curTime)
         const todaySec = new Date(),
             timeInSec = todaySec.getHours() * 3600 + todaySec.getMinutes() * 60 + todaySec.getSeconds();
         setRegTimeInSec(timeInSec);
+
     }
     const handleClose = () => {
         setOpen(false);
@@ -170,22 +177,22 @@ const ParkingSpace = () => {
 
                 {spaceAllocateNumber().map((ele: any) => {
                     return <Grid item xs={4} key={ele} >
-                        <Card >
+                        <Card sx={{ height: "100%" }}>
                             <CardContent>
                                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                     Car Parking
                                 </Typography>
-                                <Typography variant="h5" component="div" color="blue" sx={{ my: 2 }}>
+                                <Typography variant="h5" component="div" color="blue" sx={{ my: 1 }}>
                                     Parking No :  {ele}
                                 </Typography>
                                 {
                                     allocateParkNo.length > 0 && allocateParkNo.map((spAlocate: any, index: number) => {
                                         if (Number(spAlocate.randomNo) === Number(ele)) {
-                                            return <Typography variant="h6" sx={{ my: 2 }}>
+                                            return <Typography variant="h6" sx={{ my: 2 }} color="green" >
                                                 {`Allocated`}<br />
                                                 {`Car No : ${spAlocate?.carNum} `}<br />
 
-                                                <Button variant="contained" size="small" onClick={() => handleExit(ele)} sx={{ my: 2 }}> Exit car</Button>
+                                                <Button variant="contained" size="small" onClick={() => handleExit(ele)}> Exit car</Button>
                                             </Typography>
                                         }
 
@@ -212,7 +219,7 @@ const ParkingSpace = () => {
                     Car Registration
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ mt: 2 }}>
-                    Car Number  : <TextField id="outlined-basic" variant="outlined" value={carNo} onChange={handleCarNo} />
+                    Car Number  <TextField id="outlined-basic" variant="outlined" value={carNo} onChange={handleCarNo} />
                 </Typography>
                 <Typography variant="h6" component="div" sx={{ mt: 2 }}>
                     Parking Time : {parkTime}
