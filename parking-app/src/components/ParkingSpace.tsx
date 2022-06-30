@@ -11,8 +11,6 @@ import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 //toast
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 
 const style = {
@@ -168,8 +166,7 @@ const ParkingSpace = () => {
     };
     //rendring data
     return <div>
-        <h1>Parking Space</h1>
-        <h2>{space?.numSpace}</h2>
+        <h1 data-testid="park-heading">Parking Space</h1>
         <Button variant="contained" onClick={handleRegistration}> Car registration</Button>
 
         <Box sx={{ width: '100%', m: 2 }}>

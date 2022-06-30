@@ -16,12 +16,12 @@ const Home = () => {
 
     }
     return <div>
-        <h1>Parking App</h1><br />
+        <h1 data-testid="home-heading">Parking App</h1><br />
         No. of space <br /><br />
 
-        <TextField id="outlined-basic" label="No of space" variant="outlined" value={numSpace} onChange={handleChange} /><br /><br />
+        <TextField id="outlined-basic" label="No of space" variant="outlined" value={numSpace} onChange={handleChange} data-testid="parking-create-text-input" /><br /><br />
 
-        <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+        <Button variant="contained" onClick={handleSubmit} data-testid="parking-create-submit-button">Submit</Button>
     </div>;
 }
 
