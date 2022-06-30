@@ -145,8 +145,9 @@ const ParkingSpace = () => {
         setOpenTwo(false);
     }
     const handlePayment = () => {
-        // {“car-registration”: ”TU68 0BB” .”charge”:20
+
         const data = { "car-registration": carNo, "charge": parkingCharge }
+        Swal.fire("Car Registration", JSON.stringify(data))
         fetch("https://httpstat.us/200", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -174,7 +175,7 @@ const ParkingSpace = () => {
 
                 {spaceAllocateNumber().map((ele: any) => {
                     return <Grid item xs={4} key={ele} >
-                        <Card sx={{ height: "100%" }}>
+                        <Card sx={{ height: "100%" }} key={ele} >
                             <CardContent>
                                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                                     Car Parking
@@ -185,7 +186,7 @@ const ParkingSpace = () => {
                                 {
                                     allocateParkNo.length > 0 && allocateParkNo.map((spAlocate: any, index: number) => {
                                         if (Number(spAlocate.randomNo) === Number(ele)) {
-                                            return <Typography variant="h6" sx={{ my: 2 }} color="green" >
+                                            return <Typography variant="h6" sx={{ my: 2 }} color="green" key={ele} >
                                                 {`Allocated`}<br />
                                                 {`Car No : ${spAlocate?.carNum} `}<br />
 
